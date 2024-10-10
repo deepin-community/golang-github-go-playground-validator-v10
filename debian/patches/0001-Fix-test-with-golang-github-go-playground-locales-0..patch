@@ -1,0 +1,51 @@
+From: Dean Karn <Dean.Karn@gmail.com>
+Date: Sun, 8 Aug 2021 15:33:28 -0700
+Subject: Fix test with golang-github-go-playground-locales 0.14.0
+
+Origin: backport, https://github.com/go-playground/validator/pull/815
+---
+ translations/fr/fr_test.go | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/translations/fr/fr_test.go b/translations/fr/fr_test.go
+index a3f864c..c2c88d0 100644
+--- a/translations/fr/fr_test.go
++++ b/translations/fr/fr_test.go
+@@ -4,9 +4,9 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	. "github.com/go-playground/assert/v2"
+ 	french "github.com/go-playground/locales/fr"
+ 	ut "github.com/go-playground/universal-translator"
+-	. "github.com/go-playground/assert/v2"
+ 	"github.com/go-playground/validator/v10"
+ )
+ 
+@@ -536,7 +536,7 @@ func TestTranslations(t *testing.T) {
+ 		},
+ 		{
+ 			ns:       "Test.MaxNumber",
+-			expected: "MaxNumber doit être égal à 1 113,00 ou moins",
++			expected: "MaxNumber doit être égal à 1 113,00 ou moins",
+ 		},
+ 		{
+ 			ns:       "Test.MaxMultiple",
+@@ -548,7 +548,7 @@ func TestTranslations(t *testing.T) {
+ 		},
+ 		{
+ 			ns:       "Test.MinNumber",
+-			expected: "MinNumber doit être égal à 1 113,00 ou plus",
++			expected: "MinNumber doit être égal à 1 113,00 ou plus",
+ 		},
+ 		{
+ 			ns:       "Test.MinMultiple",
+@@ -560,7 +560,7 @@ func TestTranslations(t *testing.T) {
+ 		},
+ 		{
+ 			ns:       "Test.LenNumber",
+-			expected: "LenNumber doit être égal à 1 113,00",
++			expected: "LenNumber doit être égal à 1 113,00",
+ 		},
+ 		{
+ 			ns:       "Test.LenMultiple",
